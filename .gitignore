@@ -1,3 +1,17 @@
 /MADDPG/tmp/
+/MADDPG/.dea/
+/MAPPO/.idea/
 /MADDPG/run1_2UGV/
+__pycache__/
 /MAPPO/onpolicy/scripts/results/
+.idea/misc.xml
+MAPPO/onpolicy/utils/__pycache__/
+.idea/
+MADDPG/__pycache__/
+MAPPO/onpolicy/__pycache__/
+MAPPO/onpolicy/algorithms/__pycache__/
+MAPPO/onpolicy/algorithms/rmappo/__pycache__/
+MAPPO/onpolicy/algorithms/utils/__pycache__/
+MAPPO/onpolicy/envs/mpe/__pycache__/
+MADDPG/multiagent/__pycache__/
+MADDPG/multiagent/scenarios/__pycache__/
