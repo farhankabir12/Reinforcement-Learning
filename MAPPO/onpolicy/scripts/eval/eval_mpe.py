@@ -7,9 +7,9 @@ import setproctitle
 import numpy as np
 from pathlib import Path
 import torch
-from onpolicy.config import get_config
-from onpolicy.envs.mpe.MPE_env import MPEEnv
-from onpolicy.envs.env_wrappers import SubprocVecEnv, DummyVecEnv
+from MAPPO.onpolicy.config import get_config
+from MAPPO.onpolicy.envs.mpe.MPE_env import MPEEnv
+from MAPPO.onpolicy.envs.env_wrappers import SubprocVecEnv, DummyVecEnv
 
 """Train script for MPEs."""
 
@@ -101,7 +101,8 @@ def main(args):
     # run dir
     run_dir = Path(os.path.split(os.path.dirname(os.path.abspath(__file__)))[0] + "/results") / all_args.env_name / all_args.scenario_name / all_args.algorithm_name / all_args.experiment_name
     if not run_dir.exists():
-        os.makedirs(str(run_dir))
+        print('no dir')
+        #os.makedirs(str(run_dir))
 
     # wandb
     if all_args.use_wandb:
@@ -127,7 +128,8 @@ def main(args):
                 curr_run = 'run%i' % (max(exst_run_nums) + 1)
         run_dir = run_dir / curr_run
         if not run_dir.exists():
-            os.makedirs(str(run_dir))
+            print('no dir')
+            #os.makedirs(str(run_dir))
 
     setproctitle.setproctitle(str(all_args.algorithm_name) + "-" + str(
         all_args.env_name) + "-" + str(all_args.experiment_name) + "@" + str(all_args.user_name))
@@ -153,9 +155,9 @@ def main(args):
 
     # run experiments
     if all_args.share_policy:
-        from onpolicy.runner.shared.mpe_runner import MPERunner as Runner
+        from MAPPO.onpolicy.runner.shared.mpe_runner import MPERunner as Runner
     else:
-        from onpolicy.runner.separated.mpe_runner import MPERunner as Runner
+        from MAPPO.onpolicy.runner.separated.mpe_runner import MPERunner as Runner
 
     runner = Runner(config)
     runner.eval_custom(1000)

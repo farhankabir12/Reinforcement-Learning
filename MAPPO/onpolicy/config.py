@@ -167,7 +167,7 @@ def get_config():
                         action='store_false', default=True, help="by default, make sure random seed effective. if set, bypass such function.")
     parser.add_argument("--n_training_threads", type=int,
                         default=1, help="Number of torch threads for training")
-    parser.add_argument("--n_rollout_threads", type=int, default=1,
+    parser.add_argument("--n_rollout_threads", type=int, default=128,
                         help="Number of parallel envs for training rollouts, default is 32")
     parser.add_argument("--n_eval_rollout_threads", type=int, default=1,
                         help="Number of parallel envs for evaluating rollouts")
@@ -283,6 +283,7 @@ def get_config():
     parser.add_argument("--ifi", type=float, default=0.1, help="the play interval of each rendered image in saved video.")
 
     # pretrained parameters
-    parser.add_argument("--model_dir", type=str, default='C:/Users/Farhan Kabir/Documents/CSE/GNR/LinuxBackups/MAPPO/Official MAPPO/on-policy-official/onpolicy/scripts/results/MPE/simple_spread/mappo/check/run1/models', help="by default None. set the path to pretrained model.")
+    #parser.add_argument("--model_dir", type=str, default=None, help="by default None. set the path to pretrained model.")
+    parser.add_argument("--model_dir", type=str, default='C:/Users/Farhan Kabir/PycharmProjects/Reinforcement-Learning/MAPPO/onpolicy/scripts/results/MPE/simple_spread/mappo/check/run14/models', help="by default None. set the path to pretrained model.")
 
     return parser

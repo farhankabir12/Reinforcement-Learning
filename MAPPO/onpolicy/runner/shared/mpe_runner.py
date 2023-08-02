@@ -1,7 +1,7 @@
 import time
 import numpy as np
 import torch
-from onpolicy.runner.shared.base_runner import Runner
+from MAPPO.onpolicy.runner.shared.base_runner import Runner
 import wandb
 import imageio
 
@@ -228,7 +228,7 @@ class MPERunner(Runner):
                 eval_obs, eval_rewards, eval_dones, eval_infos = self.eval_envs.step(eval_actions_env)
                 bench_data = self.eval_envs.dummy_bench()
   #HERE!!!!!!!!!!!!!!!!!!!!!!!
-                print('bench data ',bench_data)
+                #print('bench data ',bench_data)
                 eval_episode_rewards.append(eval_rewards)
 
                 eval_rnn_states[eval_dones == True] = np.zeros(
